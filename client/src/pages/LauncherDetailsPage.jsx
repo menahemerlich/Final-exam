@@ -7,20 +7,20 @@ import { useNavigate } from 'react-router';
 function LauncherDetailsPage() {
     const navigate = useNavigate()
     const { launcherId } = useParams()
-    const { data, setData } = useContext(Context)
+    const { data } = useContext(Context)
 
     const launcher = data.find((item) => item._id == launcherId)
 
     return (
-        <div >
+        <div className='page'>
             <button onClick={() => navigate("/")}
             >Home</button>
             <div className='card'>
-                <p>{launcher.name}</p>
-                <p>{launcher.rocketType}</p>
-                <p>{launcher.latitude}</p>
-                <p>{launcher.longitude}</p>
-                <p>{launcher.city}</p>
+                <h1>name: {launcher.name}</h1>
+                <h3>rocketType: {launcher.rocketType}</h3>
+                <span>latitude: {launcher.latitude}</span>
+                <span>longitude: {launcher.longitude}</span>
+                <p>city: {launcher.city}</p>
             </div>
         </div>
     )
